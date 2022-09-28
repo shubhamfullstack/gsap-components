@@ -96,10 +96,10 @@ export default function Header() {
             </span>
         </div>
         <nav ref={navEl} className="opacity-0 my-8 gap-2 text-sm font-medium flex flex-col">
-            <a className="text-gray-500 menu__item opacity-0" href="/">About</a>
-            <a className="text-gray-500 menu__item opacity-0" href="/">Blog</a>
-            <a className="text-gray-500 menu__item opacity-0" href="/">Projects</a>
-            <a className="text-gray-500 menu__item opacity-0" href="/">Contact</a>
+            <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">About</a>
+            <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Blog</a>
+            <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Projects</a>
+            <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Contact</a>
         </nav>
       </div>}
     </div>
