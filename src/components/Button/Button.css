@@ -1,0 +1,8 @@
+.app-button::before {
+    clip-path: circle(0% at center);
+    transition: 0.3s ease-out;
+}
+
+.app-button:hover:before {
+    clip-path: circle(150% at center);
+  }

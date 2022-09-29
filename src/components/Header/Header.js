@@ -1,7 +1,8 @@
 import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react'
+import Button from '../Button/Button';
 
-export default function Header() {
+export default function Header({onLogIn}) {
   const [open, setopen] = useState(false);
   const navEl = useRef();
 
@@ -36,6 +37,10 @@ export default function Header() {
     }
   }, [open]);
 
+  const handleLogin = () => {
+    onLogIn();
+  }
+
 
   return (
     <header className="shadow-sm">
@@ -53,19 +58,14 @@ export default function Header() {
       </nav>
 
       <div className="items-center justify-end flex-1 hidden gap-4 sm:flex">
-        <a
-          className="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
+        <span
+          onClick={handleLogin}
+          className="cursor-pointer px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
           href="/"
         >
           Log in
-        </a>
-
-        <a
-          className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg"
-          href="/"
-        >
-          Sign up
-        </a>
+        </span>
+        <Button label="Sign up" />
       </div>
 
       <div className="lg:hidden">
@@ -88,20 +88,20 @@ export default function Header() {
           </svg>
         </button>
       </div>
-      {open && <div className='lg:hidden absolute h-screen w-screen top-0 left-0 bg-white p-4'>
+      <div ref={navEl} className='opacity-0 lg:hidden absolute h-screen w-screen top-0 left-0 bg-white p-4'>
         <div className='flex items-center flex-nowrap justify-between gap-4'>
             <span className="">App.</span>
             <span onClick={toggleMenu} className='cursor-pointer'>
                 <svg className='w-5 h-5 opacity-75' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
             </span>
         </div>
-        <nav ref={navEl} className="opacity-0 my-8 gap-2 text-sm font-medium flex flex-col">
+        <nav className="my-8 gap-2 text-sm font-medium flex flex-col">
             <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">About</a>
             <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Blog</a>
             <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Projects</a>
             <a className="text-gray-500 menu__item opacity-0 -translate-x-28" href="/">Contact</a>
         </nav>
-      </div>}
+      </div>
     </div>
   </div>
 </header>

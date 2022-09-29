@@ -1,9 +1,18 @@
+import { useState } from "react";
 import Header from "./components/Header/Header";
+import Modal from "./components/Modal/Modal";
 
 function App() {
+  const [visibility, setVisibility] = useState(false)
+
+  const toggleLoginVisibility = () => {
+    setVisibility(!visibility);
+  }
+
   return (
     <div>
-      <Header />
+      <Header onLogIn={toggleLoginVisibility} />
+      <Modal visibility={visibility} onSignIn={toggleLoginVisibility}/>
     </div>
   );
 }
